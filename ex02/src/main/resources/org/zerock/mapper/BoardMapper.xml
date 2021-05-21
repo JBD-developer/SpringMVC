@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.zerock.mapper.BoardMapper">
+	<!--Basic SELECT -->
 	<select id="getList" resultType="org.zerock.domain.BoardVO">
 		<![CDATA[
 			SELECT *
@@ -8,5 +9,50 @@
 			 WHERE bno > 0 
 		]]>
 	</select>
+	
+	<!-- Basic Insert -->
+	<insert id="insert">
+		<![CDATA[
+			INSERT INTO tbl_board 
+			(
+			     
+			     bno,
+			     title,
+			     content, 
+			     writer
+			 )
+			VALUES 
+			(
+			     seq_board.nextval,
+			     #{title},
+			     #{content},
+			     #{writer}
+			 ) 
+		]]>
+	</insert>
+	
+	<!-- Key Insert -->
+	<insert id="insertSelectKey">
+		
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			SELECT seq_board.nextval 
+			  FROM dual
+		</selectKey>
 
+			INSERT INTO tbl_board 
+			(
+			     
+			     bno,
+			     title,
+			     content, 
+			     writer
+			 )
+			VALUES 
+			(
+			     #{bno},
+			     #{title},
+			     #{content},
+			     #{writer}
+			 ) 
+	</insert>
 </mapper>
