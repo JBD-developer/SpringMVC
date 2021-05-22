@@ -24,12 +24,48 @@ public class BoardMapperTests {
 	}
 	@Test
 	public void testInsertO() {
-		BoardVO boardVO = new BoardVO();
-		boardVO.setTitle("new test Title");
-		boardVO.setContent("net test Content");
-		boardVO.setWriter("User04");
+//		BoardVO boardVO = new BoardVO();
+//		boardVO.setTitle("new test Title");
+//		boardVO.setContent("net test Content");
+//		boardVO.setWriter("User04");
+//		
+//		mapper.insert(boardVO);
+//		log.info(boardVO);
+	}
+	
+	@Test
+	public void testInsertSelectKey() {
+//		BoardVO boardVO = new BoardVO();
+//		boardVO.setTitle("new Select Key Title");
+//		boardVO.setContent("new SelectKey Content");
+//		boardVO.setWriter("User05");
+//		
+//		mapper.insertSelectKey(boardVO);
+//		
+//		log.info(boardVO);
+	}
+	
+	@Test
+	public void testRead() {
 		
-		mapper.insert(boardVO);
-		log.info(boardVO);
+//		BoardVO boardVO = mapper.read(4L);
+//		log.info(boardVO);
+	}
+	
+	@Test
+	public void testDelete() {
+//		log.info("DELETE COUNT : " + mapper.delete(6L));
+	}
+	
+	@Test
+	public void testUpdate() {
+		BoardVO boardVO = new BoardVO();
+		boardVO.setBno(5L);
+		boardVO.setTitle("Update Title");
+		boardVO.setContent("Update Content");
+		boardVO.setWriter("User05");
+		
+		int count = mapper.update(boardVO);
+		log.info("UPDATE COUNT :" + count);
 	}
 }

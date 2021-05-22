@@ -55,4 +55,29 @@
 			     #{writer}
 			 ) 
 	</insert>
+
+	<!-- Detail SELECT -->	
+	<select id="read" resultType="org.zerock.domain.BoardVO">
+		SELECT *
+		  FROM tbl_board
+		 WHERE bno = #{bno} 
+	</select>
+	
+	<!-- Detail DELETE -->	
+	<delete id="delete">
+		DELETE 
+		  FROM tbl_board 
+		 WHERE bno = #{bno}
+	
+	</delete>
+	
+	<!--UPDATE-->
+	<update id="update">
+		UPDATE tbl_board
+		   SET title      =  #{title},
+		       content    =  #{content}, 
+		       writer     =  #{writer},
+		       updateDate =  sysdate
+	   	 WHERE bno = #{bno}
+	</update>
 </mapper>
