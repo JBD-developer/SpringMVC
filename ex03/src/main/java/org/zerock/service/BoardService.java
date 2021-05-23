@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.zerock.domain.BoardVO;
 
+
 public interface BoardService {
 
 	public void register (BoardVO boardVO);
@@ -12,7 +13,7 @@ public interface BoardService {
 
 	public BoardVO get(long bno);
 	
-	public boolean remoce(long bno);
+	public boolean remove(long bno);
 	
 	public List<BoardVO> getList();
 }
