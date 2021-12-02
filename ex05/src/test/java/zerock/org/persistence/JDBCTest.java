@@ -13,7 +13,7 @@ public class JDBCTest {
 	static {
 	
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy"); 
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
